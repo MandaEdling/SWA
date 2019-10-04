@@ -1,0 +1,405 @@
+/* Amanda Edlings prototype test for Palantir
+Designed using css grid https://css-tricks.com/snippets/css/complete-guide-grid/ 
+Vector clouds built from vector clouds by pch.vector https://www.freepik.com/free-vector/set-clouds-sky_4010071.htm
+*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  display: grid;
+  grid-template-areas:
+    "menu menu menu menu"
+    "left header header right"
+    "left content content right"
+    "left drawer drawer right"
+    "left travel travel right"
+    "left ad ad right"
+    "left footer footer right";
+  grid-template-rows: [row-1] 60px [row-2] 80px [row-3] 1fr [row-4] auto [row-5] 300px [row-6] auto [row-7] auto;
+  grid-template-columns: [col-1] 20% [col-2] 300px [col-3] auto [col-4] 20%;
+  grid-column-gap: 0px;
+  height: 100vh;
+  margin: 0;
+  background: #fff;
+}
+
+label {
+  color: #000 !important;
+  font-size: 1rem !important;
+  margin: 0px !important;
+}
+
+a {
+  color: #304cb2 !important;
+}
+
+/*** CSS Grid styles ***/
+
+#grid {
+  align-content: flex-start;
+  background-color: #fff;
+}
+
+header,
+footer,
+div,
+nav {
+  padding: 0.5em 0 0.25em 0;
+}
+.menu {
+  grid-area: menu;
+  grid-column: span 1;
+}
+
+.header {
+  grid-area: header;
+  grid-column: span 1;
+}
+
+.content {
+  padding-top: 0px;
+  grid-area: content;
+  background: url(https://www.southwest.com/swa-resources/images/heroes/hero_shots/HpHero1-wow-bkg-ani-20191001.gif)
+    no-repeat top center;
+  background-color: #304cb2;
+  width: 100%;
+  height: auto;
+}
+
+.drawer {
+  grid-area: drawer;
+  background: url(assets/images/clouds.svg) no-repeat top left;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
+
+.travel {
+  grid-area: travel;
+  grid-column: span 1;
+}
+
+.ad {
+  grid-area: ad;
+  justify-self: center;
+  margin-top: 20px;
+}
+
+.left {
+  grid-area: left;
+}
+
+.right {
+  grid-area: right;
+}
+
+.footer {
+  grid-area: footer;
+  justify-self: center;
+  margin-top: 40px;
+}
+
+/*** SWA Components ***/
+
+.visible {
+  display: block;
+}
+
+.menu-icon {
+  margin-top: -3px;
+}
+
+.spanish {
+  margin-left: 20px;
+}
+
+.spanish a,
+.spanish a:hover {
+  color: #304cb2;
+  font-size: 0.75em;
+  font-weight: 100;
+}
+.btn-menu {
+  color: #304cb2 !important;
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+  padding: 10px !important;
+}
+
+.bracket {
+  color: #304cb2;
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+.float-right {
+  display: block;
+  float: right;
+}
+
+.header image {
+  width: 223px;
+  height: 34px;
+}
+
+.header .float-right {
+  margin-top: 10px;
+}
+
+.ad-section h2,
+.ad-section h4,
+.ad-section p {
+  margin: 40px 0px 20px 40px;
+  color: #fff;
+}
+
+.ad-section h4 {
+  margin: 0px 40px;
+  font-weight: 300;
+}
+
+.drawer h5 {
+  display: inline;
+  color: #304cb2;
+}
+
+.drawer img {
+  margin: -5px 20px 0px 10px;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.gap {
+  margin-right: 5px;
+}
+
+.rapid-rewards {
+  background: url("https://q-cf.bstatic.com/data/sp_aff/961823/loyalty_index.png")
+    no-repeat top left;
+  background-size: cover;
+  color: #fff;
+  padding: 20px;
+}
+
+.mangage-travel {
+  background: url("https://media.triseptsolutions.com/sites/VAXWEBWNT/PublishingImages/destinations/Featured/LAX.jpg")
+    no-repeat top center;
+  background-size: cover;
+  color: #fff;
+  padding: 20px;
+}
+
+.start-now {
+  margin-top: 98px;
+}
+
+.ad-box p {
+  width: 300px;
+}
+
+.ad img {
+  width: 100%;
+  height: auto;
+}
+
+.footer img {
+  width: 100%;
+  height: auto;
+}
+
+/*** Bootstrap Specific Styles ***/
+
+.navbar {
+  background: #ffbf27;
+  box-shadow: 0px 0px white !important;
+}
+
+.navbar-dark .navbar-brand,
+.nav-link {
+  color: #304cb2 !important;
+  font-weight: 600 !important;
+}
+.ad-section button {
+  margin: 0px 40px 40px 40px !important;
+  box-shadow: none !important;
+  border-radius: 0px;
+}
+
+.btn-primary {
+  background: #304cb2 !important;
+  border: 1px solid #fff !important;
+  color: #fff !important;
+  border-radius: 0px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px !important;
+}
+
+/*** Modal ***/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: transparent;
+}
+
+.modal-content {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  flex-direction: column;
+  width: 30% !important;
+  height: 100% !important;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px !important;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  outline: 0;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  -webkit-animation-name: animateleft;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animateleft;
+  animation-duration: 0.4s;
+}
+
+.modal-backdrop {
+  background-color: transparent;
+}
+
+/* Add Animation */
+@-webkit-keyframes animateleft {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animateleft {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  margin-top: -30px !important;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal Body */
+.modal-header {
+  display: block !important;
+  border-radius: 0px !important;
+  background-color: #ffbf27;
+  color: #304cb2;
+  height: 60px;
+}
+
+.modal-header h2 {
+  margin-top: -10px;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  overflow-y: initial !important;
+}
+
+.swa-input {
+  margin-top: 10px;
+  width: 100%;
+  height: 46px;
+}
+
+.form-check {
+  margin-bottom: 10px;
+}
+
+.modal-login-btn {
+  width: 100%;
+}
+
+.modal-footer {
+  padding: 0px 20px 0px 0px !important;
+  color: #626262;
+}
+
+/*** Responsive Styling  ***/
+@media all and (max-width: 1600px) {
+  body {
+    grid-template-areas:
+      "menu menu menu menu"
+      "left header header right"
+      "left content content right"
+      "left drawer drawer right"
+      "left travel travel right"
+      "left ad ad right"
+      "left footer footer right";
+    grid-template-columns: 10% 300px auto 10%;
+  }
+}
+@media all and (max-width: 1200px) {
+  body {
+    grid-template-areas:
+      "menu menu menu menu"
+      "left header header right"
+      "left content content right"
+      "left drawer drawer right"
+      "left travel travel right"
+      "left ad ad right"
+      "left footer footer right";
+    grid-template-columns: 1fr 300px auto 1fr;
+  }
+}
+
+@media all and (max-width: 575px) {
+  body {
+    grid-template-areas:
+      "menu menu"
+      "header header"
+      "content content"
+      "drawer drawer"
+      "travel travel"
+      "ad ad"
+      "footer footer";
+    grid-template-rows: auto;
+    grid-template-columns: 1fr auto;
+  }
+  .float-right {
+    float: none;
+  }
+  .start-now {
+    margin-top: 20px;
+  }
+}
